@@ -4,10 +4,11 @@ using System.Windows.Forms;
 
 class Program
 {
-    static Dictionary<string, string> replacements = new()
+    static Dictionary<string, string> substitutions = new()
     {
         { "x.com", "girlcockx.com" },
-        { "www.tiktok.com", "vxtiktok.com" }
+        { "www.tiktok.com", "vxtiktok.com" },
+        { "youtube.com/shorts", "youtu.be" }
     };
 
     [STAThread]
@@ -32,7 +33,7 @@ class Program
                 string text = Clipboard.GetText();
                 string originalText = text;
 
-                foreach (var pair in replacements)
+                foreach (var pair in substitutions)
                 {
                     if (text.StartsWith("https://"))
                     {
